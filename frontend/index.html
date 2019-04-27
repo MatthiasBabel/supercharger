@@ -69,7 +69,11 @@
 
   <script>
     $("#load").hide();
-    let ip = "192.168.1.26";
+    
+    // ###################
+    //Place your IP here
+    let ip = "localhost";
+
     let address, value, seed, data;
     seed = "SEED99999999999999999999999999999999999999999999999999999999999999999999999999999";
     data = {
@@ -92,12 +96,10 @@
         headers: {
           'Accept': 'text/plain',
         },
-        //    dataType: "json",
         url: "http://" + ip + ":3000/api/getBalanceOfSeed",
         data: { "seed": seed },
         success: function (data) {
           $("#balance").html("Your balance is: " + data + "i");
-          //$("#balance").append(data);
 
           console.log(data);
         }
@@ -125,29 +127,6 @@
           console.log(data);
         }
       });
-      /*       var xhr = new XMLHttpRequest();
-            var url = "http://192.168.1.24:3000/api/transfer";
-            xhr.open("POST", url, true);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.onreadystatechange = function () {
-              if (xhr.readyState == 4 && xhr.status == 200) {
-                var json = JSON.parse(xhr.responseText);
-                console.log( json)
-              }
-            }
-            xhr.send(JSON.stringify({
-              seed: seed,
-              to: address,
-              tag: "SUPERCHARGER",
-              message: "I NEED SOME STROM"
-            })); */
-      /*         beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer 6QXNMEMFHNY4FJ5ELNFMP5KRW52WFXN5")
-              }, success: function (data) {
-                alert(data);
-                //process the JSON data etc
-              }
-            })*/
     });
 
 
